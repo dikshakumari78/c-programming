@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+
+int add(int a, int b);
+int subtract(int a, int b);
+int multiply(int a, int b);
+int divide(int a, int b);
+
+int main() {
+   
+    int (*operation[4])(int, int) = {add, subtract, multiply, divide};
+
+    int num1 = 10, num2 = 5;
+
+    
+    printf("Operations on %d and %d:\n", num1, num2);
+    printf("Addition: %d\n", operation[0](num1, num2));
+    printf("Subtraction: %d\n", operation[1](num1, num2));
+    printf("Multiplication: %d\n", operation[2](num1, num2));
+    printf("Division: %d\n", operation[3](num1, num2));
+
+    return 0;
+}
+
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int divide(int a, int b) {
+    if (b != 0) {
+        return a / b;
+    } else {
+        printf("Error: Division by zero\n");
+        return 0;
+    }
+}
