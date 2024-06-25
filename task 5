@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+
+int add(int a, int b);
+
+int main() {
+  
+    int (*ptr_add)(int, int);
+
+    
+    ptr_add = &add;
+
+    int result = ptr_add(5, 7);
+
+    
+    printf("Result of add function: %d\n", result);
+
+    return 0;
+}
+
+
+int add(int a, int b) {
+    return a + b;
+}
