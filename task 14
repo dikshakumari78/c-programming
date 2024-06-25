@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+
+struct Student {
+    char name[50];
+    struct Date birthdate;
+};
+
+int main() {
+    
+    struct Student student;
+
+   
+    strcpy(student.name, "Alice");
+    student.birthdate.day = 15;
+    student.birthdate.month = 6;
+    student.birthdate.year = 2000;
+
+    
+    printf("Student details:\n");
+    printf("Name: %s\n", student.name);
+    printf("Birthdate: %d-%d-%d\n", student.birthdate.year, student.birthdate.month, student.birthdate.day);
+
+    return 0;
+}
