@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+
+void applyFunction(int arr[], int size, void (*func)(int *));
+
+
+void doubleValue(int *num) {
+    *num *= 2;
+}
+
+int main() {
+    int size = 5;
+    int arr[] = {1, 2, 3, 4, 5};
+
+    
+    applyFunction(arr, size, doubleValue);
+
+  
+    printf("Modified array after doubling each element:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+void applyFunction(int arr[], int size, void (*func)(int *)) {
+    for (int i = 0; i < size; i++) {
+        func(&arr[i]);  
+    }
+}
